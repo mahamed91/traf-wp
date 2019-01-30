@@ -2,6 +2,9 @@ version: "3.2"
 services:
   web:
     image: mahamed/traf-wp
+    container_name: web
+    networks:
+      - web
     restart: always
     volumes:
       - 'nginx_data:/var/www/html'
@@ -13,6 +16,8 @@ services:
     image: mariadb:latest
     ports:
       - 3306:3306
+    networks:
+      - web
     environment:
       MYSQL_ROOT_PASSWORD: 'test_pass' # TODO: Change this
       MYSQL_DATABASE: 'wp'
@@ -23,3 +28,8 @@ services:
 volumes:
   mysql:
   nginx_data:
+
+networks:
+  web:
+    external: true
+  
