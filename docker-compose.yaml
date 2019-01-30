@@ -1,0 +1,24 @@
+version: "3.2"
+services:
+  web:
+    image: mahamed/traf-wp
+    restart: always
+    volumes:
+      - 'nginx_data:/var/www/html'
+    ports: 
+      - 80:8080
+  mysql:
+    container_name: mysql
+    restart: always
+    image: mariadb:latest
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 'test_pass' # TODO: Change this
+      MYSQL_USER: 'test'
+      MYSQL_PASS: 'pass'
+    volumes:
+      - mysql:/var/lib/mysql
+volumes:
+  mysql:
+  nginx_data:
