@@ -13,7 +13,7 @@ services:
   mysql:
     container_name: mysql
     restart: always
-    image: mariadb:latest
+    image: mysql:5.6
     ports:
       - 3306:3306
     networks:
@@ -25,6 +25,7 @@ services:
       MYSQL_PASS: 'pass'
     volumes:
       - mysql:/var/lib/mysql
+
 volumes:
   mysql:
   nginx_data:
