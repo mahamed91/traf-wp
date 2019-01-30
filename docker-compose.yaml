@@ -15,6 +15,7 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: 'test_pass' # TODO: Change this
+      MYSQL_DATABASE: 'wp'
       MYSQL_USER: 'test'
       MYSQL_PASS: 'pass'
     volumes:
