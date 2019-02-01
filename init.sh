@@ -1,5 +1,6 @@
 #!/bin/bash
-sudo apt update && sudo apt-get install git unzip -y > /dev/null
+sudo apt update && sudo apt upgrade
+sudo apt-get install git unzip curl -y > /dev/null
 curl -L get.docker.com | sudo bash
 docker network create web
 mkdir -p /opt/mysql && mkdir -p /opt/www
